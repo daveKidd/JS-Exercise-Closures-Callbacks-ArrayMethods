@@ -120,26 +120,42 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 
 Final Score: awayTeam - homeTeam */
-function getInningScore(inn,numInn){
-  let totalAway = 0;
-  let totalHome = 0;
-  for(i=1;i<=numInn;i++){
-    totalHome += inn();
-    totalAway += inn();
-    console.log("Inning " + i + ": Away Team: " + totalAway + " - Home Team: " + totalHome);
-  }
-  if(totalAway > totalHome){
-    console.log("Away Team Wins!");
-  }
-  else if(totalHome > totalAway){
-    console.log("Home Team Wins!");
-  }
-  else{
-    console.log("It's a tie!");
-  }
+// function getInningScore(inn,numInn){
+//   let totalAway = 0;
+//   let totalHome = 0;
+//   for(i=1;i<=numInn;i++){
+//     totalHome += inn();
+//     totalAway += inn();
+//     console.log("Inning " + i + ": Away Team: " + totalAway + " - Home Team: " + totalHome);
+//   }
+//   if(totalAway > totalHome){
+//     console.log("Away Team Wins!");
+//   }
+//   else if(totalHome > totalAway){
+//     console.log("Home Team Wins!");
+//   }
+//   else{
+//     console.log("It's a tie!");
+//   }
+// }
+// function scoreboard(getInn, inn, numInn) {
+//   getInn(inn,numInn);
+// }
+// scoreboard(getInningScore,inning, 12);
+
+//another way to to do it
+
+function getInningScore(inn){
+  return inn();  
 }
 function scoreboard(getInn, inn, numInn) {
-  getInn(inn,numInn);
+  let homeTotal = 0;
+  let awayTotal = 0;
+  for(i=1;i<=numInn;i++){
+    homeTotal += getInn(inn);
+    awayTotal += getInn(inn);
+    console.log("Inning " + i + ": Away Team: " + awayTotal + " - Home Team: " + homeTotal);
+  }
 }
 scoreboard(getInningScore,inning, 12);
 
